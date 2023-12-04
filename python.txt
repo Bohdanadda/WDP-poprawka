@@ -1,0 +1,25 @@
+def main():
+    # Inicjalizacja pustego słownika
+    litera_count = {}
+
+    # Wczytywanie danych od użytkownika
+    dane = input("Podaj dane (po jednej literze w każdej linii, wpisz 'koniec' aby zakończyć):\n")
+
+    while dane.lower() != "koniec":
+        # Sprawdzenie, czy wprowadzone dane to pojedyncza litera
+        if len(dane) == 1 and dane.isalpha():
+            # Aktualizacja słownika
+            litera_count[dane.lower()] = litera_count.get(dane.lower(), 0) + 1
+        else:
+            print("Błędne dane. Podaj pojedynczą literę.")
+
+        # Wczytanie kolejnej linii
+        dane = input()
+
+    # Wyświetlenie słownika
+    print("\nWynik:")
+    for litera, count in litera_count.items():
+        print(f"{litera}: {count} razy")
+
+if __name__ == "__main__":
+    main()
